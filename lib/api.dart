@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:location/location.dart';
 import 'package:flutter_weather/classes/current_weather.dart';
 
@@ -14,7 +15,7 @@ class Api {
     LocationData location, {
     bool? fC,
   }) async {
-    const String apiKey = "2WSJSBP8RNBBV6EJTAC6TPKA2";
+    final String? apiKey = dotenv.env['API_KEY'];
     final double? lat = location.latitude;
     final double? long = location.longitude;
     final String unit = (fC ?? false) ? 'metric' : 'us';

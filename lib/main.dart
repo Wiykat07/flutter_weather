@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_weather/api.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_weather/screens/alert.dart';
@@ -11,6 +12,7 @@ import 'package:flutter_weather/screens/home.dart';
 import 'package:flutter_weather/bloc/weatherbloc.dart';
 
 Future<void> main() async {
+  await dotenv.load(fileName: "assets/.env");
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider<PreferencesProvider>(
         create: (context) => PreferencesProvider()),
