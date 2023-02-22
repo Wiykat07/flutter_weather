@@ -62,7 +62,7 @@ class MoonPhase {
       return 'images/new_moon_3d.png';
     }
     if (phase! >= .07 && phase! <= .20) {
-      return 'images/waxing_crescent_moon.png';
+      return 'images/waxing_crescent_moon_3d.png';
     }
     if (phase! >= .21 && phase! <= .33) {
       return 'images/first_quarter_moon_3d.png';
