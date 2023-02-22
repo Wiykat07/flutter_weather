@@ -69,6 +69,7 @@ class AlertPage extends StatelessWidget {
     String? ends = alert.ends;
     String? starts = alert.onset;
     DateTime time = DateTime.now();
+    String descrip = '';
 
     if (context.read<PreferencesProvider>().time) {
       time = DateTime.parse(ends!);
@@ -82,6 +83,9 @@ class AlertPage extends StatelessWidget {
       time = DateTime.parse(starts!);
       starts = DateFormat('HH:mm MM-dd-yyyy').format(time);
     }
+
+    descrip = alert.description!.replaceAll("\n", ' ');
+    descrip = descrip.replaceAll("*", "\n\n *");
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -119,9 +123,7 @@ class AlertPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Row(
-              children: [
-                Flexible(child: Text(alert.description!.replaceAll("\n", ' ')))
-              ],
+              children: [Flexible(child: Text(descrip))],
             ),
             const SizedBox(height: 20),
             Row(
