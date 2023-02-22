@@ -87,51 +87,30 @@ class AlertPage extends StatelessWidget {
     descrip = alert.description!.replaceAll("\n", ' ');
     descrip = descrip.replaceAll("*", "\n\n *");
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Theme.of(context).colorScheme.tertiary,
-          title: Text(
-            'Special Alert',
-            style: Theme.of(context).textTheme.headlineSmall,
-          ),
-          actions: [
-            SizedBox(
-              width: 30,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/settings');
-                },
-                child: Image.asset('images/gear_3d.png'),
-              ),
-            )
-          ],
-        ),
-        body: Column(
-          children: [
-            Row(
-              children: [
-                Flexible(
-                  child: Text(alert.event!),
-                )
-              ],
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Theme.of(context).colorScheme.tertiary,
+        title: Text(alert.event!),
+        actions: [
+          SizedBox(
+            width: 30,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/settings');
+              },
+              child: Image.asset('images/gear_3d.png'),
             ),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                Flexible(child: Text(alert.headline!.replaceAll("\n", " ")))
-              ],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              children: [Flexible(child: Text(descrip))],
-            ),
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                Flexible(child: Text('starts at $starts and ends at $ends'))
-              ],
-            ),
-          ],
-        ));
+          )
+        ],
+      ),
+      body: ListView(
+        children: [
+          Text(alert.headline!.replaceAll("\n", " ")),
+          Text(descrip),
+          const Text(''),
+          Text(' starts at $starts and ends at $ends'),
+        ],
+      ),
+    );
   }
 }
