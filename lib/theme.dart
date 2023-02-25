@@ -33,6 +33,12 @@ ThemeData theme = ThemeData(
     labelMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
     labelSmall: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
   ),
+  switchTheme: SwitchThemeData(
+    thumbColor: MaterialStateProperty.all(Colors.white),
+    trackColor: MaterialStateProperty.all(const Color.fromRGBO(20, 30, 97, 1)),
+    overlayColor:
+        MaterialStateProperty.all(const Color.fromRGBO(20, 30, 97, 1)),
+  ),
   outlinedButtonTheme: OutlinedButtonThemeData(
       style: ButtonStyle(
     textStyle: MaterialStateProperty.resolveWith<TextStyle>((states) {
@@ -65,8 +71,8 @@ ThemeData light = ThemeData(
       onSecondary: Color.fromRGBO(238, 238, 238, 1),
       onTertiary: Color.fromRGBO(238, 238, 238, 1),
       onSurface: Color.fromRGBO(238, 238, 238, 1),
-      primary: Colors.lightBlue,
-      secondary: Colors.lightBlueAccent,
+      primary: Colors.lightBlueAccent,
+      secondary: Colors.lightBlue,
       tertiary: Colors.red,
       surface: Colors.lightBlue,
       primaryContainer: Colors.lightBlue),
@@ -79,6 +85,11 @@ ThemeData light = ThemeData(
     labelLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 96),
     labelMedium: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
     labelSmall: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+  ),
+  switchTheme: SwitchThemeData(
+    thumbColor: MaterialStateProperty.all(Colors.white),
+    trackColor: MaterialStateProperty.all(Colors.lightBlueAccent),
+    overlayColor: MaterialStateProperty.all(Colors.lightBlueAccent),
   ),
   outlinedButtonTheme: OutlinedButtonThemeData(
       style: ButtonStyle(
