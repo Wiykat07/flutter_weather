@@ -123,18 +123,23 @@ class _FrontPageState extends State<FrontPage> {
               height: 20,
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              Column(children: [
-                GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/detailed');
-                    },
-                    child: Image.asset(
-                        today!.icon?.filename ??
-                            'images/red_exclamation_mark_3d.png',
-                        height: 100,
-                        width: 100)),
-                Text(today!.description.toString()),
-              ]), //weather icon and description
+              Flexible(
+                child: Column(children: [
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/detailed');
+                      },
+                      child: Image.asset(
+                          today!.icon?.filename ??
+                              'images/red_exclamation_mark_3d.png',
+                          height: 100,
+                          width: 100)),
+                  Text(
+                    today!.description.toString(),
+                    overflow: TextOverflow.visible,
+                  ),
+                ]),
+              ), //weather icon and description
             ]),
             const SizedBox(
               height: 40,
@@ -194,7 +199,7 @@ class _FrontPageState extends State<FrontPage> {
               ],
             ),
             SizedBox(
-                height: 190,
+                height: 170,
                 width: 350,
                 child: GestureDetector(
                   onTap: () {
