@@ -105,17 +105,23 @@ class _FrontPageState extends State<FrontPage> {
             Row(
               children: [
                 Builder(builder: ((context) {
-                  if (weather?.alerts != null) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/alert',
-                            arguments: weather?.alerts);
-                      },
-                      child: Image.asset('images/red_exclamation_mark_3d.png',
-                          height: 50, width: 50),
-                    );
+                  if (weather == null) {
+                    return Container();
                   }
-                  return Container();
+                  if (weather!.alerts == null) {
+                    return Container();
+                  }
+                  if (weather!.alerts!.isEmpty) {
+                    return Container();
+                  }
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/alert',
+                          arguments: weather?.alerts);
+                    },
+                    child: Image.asset('images/red_exclamation_mark_3d.png',
+                        height: 50, width: 50),
+                  );
                 })),
               ],
             ),
