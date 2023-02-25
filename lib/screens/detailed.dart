@@ -209,14 +209,12 @@ class DetailedWeather extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('${forecast?.description}'),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
+                  Flexible(
+                    child: SizedBox(
+                      height: 70,
+                      child: Text('${forecast?.description}',
+                          overflow: TextOverflow.visible),
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
